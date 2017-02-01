@@ -1,10 +1,13 @@
 # Project-Lumos
-um interruptor inteligente 
+A Lamp switch with Bluetooth
 
 itens
 -----
 - 1 x Arduino 
-- 1 X Bluetooth (aqui é utilizdo o HC-05)
-- 1 X Módulo Rele
-- 1 X Sensor Touch
-- 1 X Led
+- 1 X Bluetooth (i'm using the HC-05)
+- 1 X Relay Module
+- 1 X Touch sensor
+
+To start this project you just need to load the lumos script to your Auduino module
+then connect your phone to bluetooth module (the leds on BLT board should blink slowly). The char 'e' control the reley so send an 'e' to the board and see what happens (should turn ON the relay), another 'e' turn the relay OFF. Another way to control the relay is manualy with the Touch Sensor. One touch to power ON another to power OFF. 
+
