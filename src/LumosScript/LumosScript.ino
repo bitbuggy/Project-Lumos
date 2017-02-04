@@ -1,23 +1,34 @@
-//Bit Buggy 01/09/2017
-//Project LUMOS
+/*
+ * This project was recive a signal 
+ * to turn On/Off an relay module.
+ * You can send a command through Bluetooth (Here is utilizated an HC-05)
+ * with the command 'e'(101) or send a sinal with serial comunication with the same command
+ * or you can use a touch sensor.
+ * 
+ * Relay - Arduino pin 8
+ * Touch Sensor - Arduino pin 6
+ * Bluetooth Module RX<- - Arduino pin TX->
+ * Bluetooth Module TX-> - Arduino pin RX<-
+ * 
+ * Version 0.9 January | 2017
+ * Copyrigt Bit Buggy© and Denis Almeida
+ */
 
 
 #include <SoftwareSerial.h>
 #include<string.h>
 
 const int TouchPin = 6;
-const int ledPin = 3;
 const int relayPin = 8;
-bool ledstate = false;
+bool state = false;
 bool flag = false;
 int serialData;
 int serialDatab; 
 
-void controlRele(int control){
+void controlRelay(int control){
   if(control == 101){
-     ledstate = !ledstate;
-     digitalWrite(relayPin, ledstate);
-     digitalWrite(ledPin, ledstate);
+     state = !state;
+     digitalWrite(relayPin, state);
      Serial.println(serialData);
    }
 }
@@ -25,7 +36,6 @@ void controlRele(int control){
 
 void setup(){ 
   pinMode(TouchPin, INPUT);
-  pinMode(ledPin, OUTPUT);
   pinMode(relayPin, OUTPUT);
   Serial.begin(9600);
   Serial1.begin(38400);
@@ -36,9 +46,8 @@ void loop() {
   
   if(sensorValue == 1){
     if (flag == false) {
-      ledstate = !ledstate;
-      digitalWrite(relayPin, ledstate);
-      digitalWrite(ledPin, ledstate);
+      state = !state;
+      digitalWrite(relayPin, state);
       flag = true;
       return (1);
     }
@@ -49,12 +58,12 @@ void loop() {
   
   if(Serial.available() > 0){
     serialData = Serial.read();
-    controlRele(serialData);
+    controlRelay(serialData);
   }
 
   if(Serial1.available() > 0){
     serialDatab = Serial1.read();
-    controlRele(serialDatab);
+    controlRelay(serialDatab);
   }
     delay(100);
  }
