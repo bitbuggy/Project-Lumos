@@ -4,7 +4,7 @@ A Lamp switch with Bluetooth
 itens
 -----
 
-<img alt="Imagem do Circuito" width=75% src="https://github.com/bitbuggy/Project-Lumos/blob/master/images/2017-02-03%2016.53.17%20HDR.jpg">
+<img alt="Imagem do Circuito" width=75% src="https://github.com/bitbuggy/Project-Lumos/blob/master/images/Modules.png">
 
 - 1 x Arduino 
 - 1 X Bluetooth (i'm using the HC-05)
