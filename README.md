@@ -3,6 +3,10 @@ A Lamp switch with Bluetooth
 
 itens
 -----
+
+![GitHub Logo](/images/2017-02-03 16.53.17 HDR.jpg)
+Format: ![Alt Text](url)
+
 - 1 x Arduino 
 - 1 X Bluetooth (i'm using the HC-05)
 - 1 X Relay Module
